@@ -15,13 +15,14 @@ class PostListView(ListView):
     template_name="blog/home.html"
     context_object_name='posts'
     ordering=['-created_at']
+    picture=['picture']
 
 class PostDetailView(DetailView):
     model=Post
 
 class PostCreateView(LoginRequiredMixin,CreateView):
     model=Post
-    fields=['title','content']
+    fields=['title','content','picture']
 
     def form_valid(self,form):
         form.instance.author = self.request.user
@@ -29,7 +30,7 @@ class PostCreateView(LoginRequiredMixin,CreateView):
 
 class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
     model=Post
-    fields=['title','content']
+    fields=['title','content','picture']
 
     def form_valid(self,form):
         form.instance.author = self.request.user
