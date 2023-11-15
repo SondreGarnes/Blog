@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-31oem7_iovju_k!k589m)6_wb%k2*hp2k^q!fyyf3uu5=vpg73'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','.vercel.app']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','my-blog-project-sondre-blog.ew.r.appspot.com']
 
 
 # Application definition
@@ -80,7 +80,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'HOST':'localhost',
+        'NAME': BASE_DIR / 'db.sqlite3'
     }
 }
 
