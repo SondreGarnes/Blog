@@ -89,7 +89,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 =======
-    'default': dj_database_url.config(default='postgres://ejklainwhrawgb:c56b2475fd33347096f247f355080555408557c0bc306e2e1b0848449935f222@ec2-107-21-67-46.compute-1.amazonaws.com:5432/d2hhci9qitgh8i')
 >>>>>>> Stashed changes
 }
 
