@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,13 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-31oem7_iovju_k!k589m)6_wb%k2*hp2k^q!fyyf3uu5=vpg73'
-
+SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+<<<<<<< Updated upstream
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1','.vercel.app']
+=======
+>>>>>>> Stashed changes
 
+ALLOWED_HOSTS = ['localhost','blogsondre-a64c2218bf3f.herokuapp.com']
 
 # Application definition
 
@@ -78,12 +83,15 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< Updated upstream
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+=======
+    'default': dj_database_url.config(default='postgres://ejklainwhrawgb:c56b2475fd33347096f247f355080555408557c0bc306e2e1b0848449935f222@ec2-107-21-67-46.compute-1.amazonaws.com:5432/d2hhci9qitgh8i')
+>>>>>>> Stashed changes
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -119,6 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = 'static/'
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
@@ -142,5 +151,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER="gmail"
 EMAIL_HOST_PASSWORD="password"
 
-
+django_heroku.settings(locals())
 
